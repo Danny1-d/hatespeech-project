@@ -1,0 +1,24 @@
+# ── Core ML ──────────────────────────────────────
+scikit-learn
+pandas
+numpy
+scipy
+matplotlib
+seaborn
+
+# ── Deep Learning ─────────────────────────────────
+torch
+transformers
+datasets
+sentencepiece
+accelerate
+
+# ── API Backend ───────────────────────────────────
+fastapi
+uvicorn
+
+# ── Free Scraping ─────────────────────────────────
+praw
+google-api-python-client
+python-dotenv
+requests

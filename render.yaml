@@ -1,0 +1,13 @@
+# ============================================================
+# render.yaml — place this in your PROJECT ROOT folder
+# ============================================================
+services:
+  - type: web
+    name: igbo-hate-speech-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd src && python api-server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /health

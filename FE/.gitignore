@@ -1,0 +1,12 @@
+.env
+venv/
+__pycache__/
+*.pyc
+models/
+scraped_data/
+data/
+outputs/
+.DS_Store
+node_modules/
+*.pkl
+*.pt
