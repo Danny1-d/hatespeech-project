@@ -109,7 +109,7 @@ def load_or_train_model():
 
     # Load preprocessor
     try:
-        m1 = find_and_load(['data'], 'data_preprocessing')
+        m1 = find_and_load(['data', 'collection'], 'data_preprocessing')
         if m1:
             state.preprocessor = m1.CodeMixPreprocessor(preserve_diacritics=True)
     except Exception as e:
@@ -125,7 +125,7 @@ def _train_fresh():
 
     log.info("Training fresh model...")
     try:
-        m1 = find_and_load(['data'],    'data_preprocessing')
+        m1 = find_and_load(['data', 'collection'], 'data_preprocessing')
         m2 = find_and_load(['feature'], 'classical_ml')
 
         if m1 is None or m2 is None:
@@ -445,10 +445,11 @@ if __name__ == "__main__":
     print("  Health  : http://localhost:8000/health")
     print("=" * 55)
 
+    PORT = int(os.environ.get("PORT", 8000))
     uvicorn.run(
-        "api-server:app",      # matches THIS filename: api-server.py
+        "api-server:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True,
+        port=PORT,       # Render sets PORT automatically
+        reload=False,    # Must be False in production
         log_level="info",
     )
